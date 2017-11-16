@@ -34,6 +34,21 @@ http://www.templatemo.com/tm-505-stacked
             <li class="nav__item">
               <a href="{{ url('homepage') }}" class="nav__link c-blue"><img src="img/home-icon.png" alt=""></a>
             </li>
+              <li class="nav__item">
+                  <a href="#2" class="nav__link c-yellow scrolly"><img src="img/login.png" alt=""></a>
+              </li>
+              <li class="nav__item">
+                  <a href="#2" class="nav__link c-yellow scrolly"><img src="img/register.png" alt="">
+                  </a>
+              </li>
+              <li class="nav__item">
+                  <a href="#2" class="nav__link c-yellow scrolly"><img src="img/map.png" alt="">
+                  </a>
+              </li>
+              <li class="nav__item">
+                  <a href="#2" class="nav__link c-yellow scrolly"><img src="img/chat.png" alt="">
+                  </a>
+              </li>
             <li class="nav__item">
               <a href="#2" class="nav__link c-yellow scrolly"><img src="img/about-icon.png" alt=""></a>
             </li>
