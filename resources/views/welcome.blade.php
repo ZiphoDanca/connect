@@ -31,16 +31,65 @@ http://www.templatemo.com/tm-505-stacked
           </div>
 
           <ul class="nav__list">
-            <li class="nav__item">
-              <a href="{{ url('homepage') }}" class="nav__link c-blue"><img src="img/home-icon.png" alt=""></a>
-            </li>
-              <li class="nav__item">
-                  <a href="#2" class="nav__link c-yellow scrolly"><img src="img/login.png" alt=""></a>
+
+              <li class="dropdown">
+                  {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">--}}
+                      {{--<center>--}}
+                          {{--<img src="img/Profile.jpg" class="img-circle" style="height: 100px;width: 100px"/>--}}
+                          {{--<br/>--}}
+                      {{--</center>--}}
+                  {{--</a>--}}
+
+                  {{--<ul class="nav navbar-nav navbar-right">--}}
+                      <!-- Authentication Links -->
+                      @guest
+                  <li class="nav__item">
+                          <a href="{{ route('login') }}" class="nav__link c-yellow scrolly"><img src="img/login.png" alt=""></a>
+                  </li>
+                  <li class="nav__item">
+                      <a href="{{ route('register') }}" class="nav__link c-yellow scrolly"><img src="img/register.png" alt="">
+                      </a>
+                   </li>
+                          {{--<li style="width: auto"><a class="glyphicon-log-in" href="{{ route('login') }}">Login</a></li>--}}
+{{--                          <li><a href="{{ route('register') }}">Register</a></li>--}}
+                          @else
+                              <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                      <center>
+                                          <img src="img/Profile.jpg" class="img-circle" style="height: 100px;width: 100px"/>
+                                          <br/>
+{{--                                          {{ Auth::user()->name }}--}}
+                                      </center>
+                                  </a>
+
+                                  <ul class="dropdown-menu">
+                                      <li>
+                                          <a href="{{ route('logout') }}"
+                                             onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                              Logout
+                                          </a>
+
+                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                              {{ csrf_field() }}
+                                          </form>
+                                      </li>
+                                  </ul>
+                              </li>
+                              @endguest
+                  {{--</ul>--}}
               </li>
-              <li class="nav__item">
-                  <a href="#2" class="nav__link c-yellow scrolly"><img src="img/register.png" alt="">
-                  </a>
-              </li>
+
+              {{--<li class="nav__item">--}}
+                  {{--<a href="#2" class="nav__link c-yellow scrolly"><img src="img/login.png" alt=""></a>--}}
+              {{--</li>--}}
+              {{--<li class="nav__item">--}}
+                  {{--<a href="#2" class="nav__link c-yellow scrolly"><img src="img/register.png" alt="">--}}
+                  {{--</a>--}}
+              {{--</li>--}}
+                      <li class="nav__item">
+                          <a href="{{ url('homepage') }}" class="nav__link c-blue"><img src="img/home-icon.png" alt=""></a>
+                      </li>
               <li class="nav__item">
                   <a href="#2" class="nav__link c-yellow scrolly"><img src="img/map.png" alt="">
                   </a>
@@ -63,7 +112,48 @@ http://www.templatemo.com/tm-505-stacked
 
 
             @yield('content')
-
+        <section class="panel b-blue" id="1">
+            <article class="panel__wrapper">
+                <div class="panel__content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="home-content">
+                                    <div class="home-heading">
+                                        <h1><em>Connect+</em> connecting people</h1>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="home-box-content">
+                                                <div class="left-text">
+                                                    <h4><em>Connect+</em></h4>
+                                                    <p>
+                                                        Connect+ is the new easiest way to connect with people around this digital world. Connect+ also aims to promote events.
+                                                        Promote businesses to reach out many customers. Sell and buy within members. Connect+ is the greatest platform for everyone. </p>
+                                                    <div class="primary-button">
+                                                    <a href="#2">Discover More</a>
+                                                    </div>
+                                                </div>
+                                                <div class="right-image">
+                                                    <img src="img/right-home-image.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="footer">
+                                    <p>Copyright &copy; 2017 Connect+
+                                        | Designed by <a href="http://www.facebook.com/zipho.danca" target="_parent">Zipho Danca</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        </section>
         {{--<section class="panel b-yellow" id="2">--}}
           {{--<article class="panel__wrapper">--}}
             {{--<div class="panel__content">--}}
@@ -204,56 +294,49 @@ http://www.templatemo.com/tm-505-stacked
             {{--</div>--}}
           {{--</article>--}}
         {{--</section>--}}
-        <section class="panel b-green" id="4">
-          <article class="panel__wrapper">
-            <div class="panel__content">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-8 col-md-offset-2">
-                    <div class="contact-content">
-                      <div class="heading">
-                        <h4>Contact us</h4>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-8">
-                          <div class="contat-form">
-                            <form id="contact" action="" method="post">
-                              <fieldset>
-                                <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">
-                              </fieldset>
-                              <fieldset>
-                                <input name="email" type="email" class="form-control" id="email" placeholder="Email" required="">
-                              </fieldset>
-                              <fieldset>
-                                <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message" required=""></textarea>
-                              </fieldset>
-                              <fieldset>
-                                <button type="submit" id="form-submit" class="btn">Send Message</button>
-                              </fieldset>
-                            </form>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="more-info">
-                            <p>Lorem ipsum dolor , consectetur adipiscing elit. Nunc purus ligula, ullamcorper id velit id, vestibulum auc sapien. Sed quis mauris eget sem imperdiet rhoncus.<br><br>
-                            <em>3344 Etiam mauris erat,
-								<br>Vestibulum eu augue nec, 10550</em></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="footer">
-                      <p>Copyright &copy; 2017 Your Company
-                      | Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </section>
+        {{--<section class="panel b-green" id="4">--}}
+          {{--<article class="panel__wrapper">--}}
+            {{--<div class="panel__content">--}}
+              {{--<div class="container">--}}
+                {{--<div class="row">--}}
+                  {{--<div class="col-md-8 col-md-offset-2">--}}
+                    {{--<div class="contact-content">--}}
+                      {{--<div class="heading">--}}
+                        {{--<h4>Contact us</h4>--}}
+                      {{--</div>--}}
+                      {{--<div class="row">--}}
+                        {{--<div class="col-md-10">--}}
+                          {{--<div class="contat-form">--}}
+                            {{--<form id="contact" action="" method="post">--}}
+                              {{--<fieldset>--}}
+                                {{--<input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">--}}
+                              {{--</fieldset>--}}
+                              {{--<fieldset>--}}
+                                {{--<input name="email" type="email" class="form-control" id="email" placeholder="Email" required="">--}}
+                              {{--</fieldset>--}}
+                              {{--<fieldset>--}}
+                                {{--<textarea name="message" rows="6" class="form-control" id="message" placeholder="Message" required=""></textarea>--}}
+                              {{--</fieldset>--}}
+                              {{--<fieldset>--}}
+                                {{--<button type="submit" id="form-submit" class="btn">Send Message</button>--}}
+                              {{--</fieldset>--}}
+                            {{--</form>--}}
+                          {{--</div>--}}
+                        {{--</div>--}}
+                      {{--</div>--}}
+                    {{--</div>--}}
+                  {{--</div>--}}
+                  {{--<div class="col-md-12">--}}
+                    {{--<div class="footer">--}}
+                      {{--<p>Copyright &copy; 2017 Your Company--}}
+                      {{--| Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>--}}
+                    {{--</div>--}}
+                  {{--</div>--}}
+                {{--</div>--}}
+              {{--</div>--}}
+            {{--</div>--}}
+          {{--</article>--}}
+        {{--</section>--}}
       
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
