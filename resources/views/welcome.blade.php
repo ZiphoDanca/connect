@@ -25,13 +25,13 @@ http://www.templatemo.com/tm-505-stacked
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
         <nav class="nav">
           <div class="burger">
             <div class="burger__patty"></div>
           </div>
 
           <ul class="nav__list">
-
               <li class="dropdown">
                   {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">--}}
                       {{--<center>--}}
@@ -43,13 +43,13 @@ http://www.templatemo.com/tm-505-stacked
                   {{--<ul class="nav navbar-nav navbar-right">--}}
                       <!-- Authentication Links -->
                       @guest
-                  <li class="nav__item">
-                          <a href="{{ route('login') }}" class="nav__link c-yellow scrolly"><img src="img/login.png" alt=""></a>
-                  </li>
-                  <li class="nav__item">
-                      <a href="{{ route('register') }}" class="nav__link c-yellow scrolly"><img src="img/register.png" alt="">
-                      </a>
-                   </li>
+                  {{--<li class="nav__item">--}}
+                          {{--<a href="{{ route('login') }}" class="nav__link c-yellow scrolly"><img src="img/login.png" title="LOGIN" alt=""></a>--}}
+                  {{--</li>--}}
+                  {{--<li class="nav__item">--}}
+                      {{--<a href="{{ route('register') }}" class="nav__link c-yellow scrolly"><img src="img/register.png" alt="">--}}
+                      {{--</a>--}}
+                   {{--</li>--}}
                           {{--<li style="width: auto"><a class="glyphicon-log-in" href="{{ route('login') }}">Login</a></li>--}}
 {{--                          <li><a href="{{ route('register') }}">Register</a></li>--}}
                           @else
@@ -131,7 +131,32 @@ http://www.templatemo.com/tm-505-stacked
                                                         Connect+ is the new easiest way to connect with people around this digital world. Connect+ also aims to promote events.
                                                         Promote businesses to reach out many customers. Sell and buy within members. Connect+ is the greatest platform for everyone. </p>
                                                     <div class="primary-button">
-                                                    <a href="#2">Discover More</a>
+                                                        @guest
+                                                            <a href="{{ route('login') }}">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <a href="{{ route('register') }}">Register</a>
+                                                            {{--<li style="width: auto"><a class="glyphicon-log-in" href="{{ route('login') }}">Login</a></li>--}}
+                                                            {{--                          <li><a href="{{ route('register') }}">Register</a></li>--}}
+                                                            @else
+                                                                <li class="dropdown">
+                                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                                                        Logged in as {{ Auth::user()->name }} <span class="caret"></span>
+                                                                    </a>
+
+                                                                    <ul class="dropdown-menu">
+                                                                        <li>
+                                                                            <a href="{{ route('logout') }}"
+                                                                               onclick="event.preventDefault();
+                                                                                document.getElementById('logout-form').submit();">
+                                                                                Logout
+                                                                            </a>
+
+                                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                                {{ csrf_field() }}
+                                                                            </form>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                                @endguest
                                                     </div>
                                                 </div>
                                                 <div class="right-image">
@@ -337,6 +362,7 @@ http://www.templatemo.com/tm-505-stacked
             {{--</div>--}}
           {{--</article>--}}
         {{--</section>--}}
+        
       
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
